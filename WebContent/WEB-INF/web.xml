@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app 
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+    
+    <filter>
+    	<filter-name>Set Character Encoding</filter-name>
+    	<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+    	<init-param>
+    		<param-name>encoding</param-name>
+    		<param-value>utf-8</param-value>
+    	</init-param>
+    	<init-param>
+    		<param-name>ignore</param-name>
+    		<param-value>false</param-value>
+    	</init-param>
+    </filter>
+    
+    <filter-mapping>
+    	<filter-name>Set Character Encoding</filter-name>
+    	<url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <servlet>
+        <servlet-name>CreateClient</servlet-name>
+        <servlet-class>com.tomcat.servlet.CreateClient</servlet-class>
+    </servlet>
+
+    <servlet>
+       	<servlet-name>SuppressionClient</servlet-name>
+        <servlet-class>com.tomcat.servlet.SuppressionClient</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>CreateOrder</servlet-name>
+        <servlet-class>com.tomcat.servlet.CreateOrder</servlet-class>
+    </servlet>
+    
+    
+    <servlet>
+       	<servlet-name>SuppressionOrder</servlet-name>
+        <servlet-class>com.tomcat.servlet.SuppressionOrder</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ListerClients</servlet-name>
+        <servlet-class>com.tomcat.servlet.ListerClients</servlet-class>
+    </servlet>
+    
+        
+    <servlet>
+        <servlet-name>ListerOrders</servlet-name>
+        <servlet-class>com.tomcat.servlet.ListerOrders</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>CreateClient</servlet-name>
+        <url-pattern>/client</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>CreateOrder</servlet-name>
+        <url-pattern>/order</url-pattern>
+
+    </servlet-mapping>
+	
+	<servlet-mapping>
+        <servlet-name>ListerClients</servlet-name>
+        <url-pattern>/listerClients</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ListerOrders</servlet-name>
+        <url-pattern>/listerOrders</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>SuppressionClient</servlet-name>
+        <url-pattern>/suppressionClient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SuppressionOrder</servlet-name>
+        <url-pattern>/suppressionOrder</url-pattern>
+    </servlet-mapping>
+</web-app>
